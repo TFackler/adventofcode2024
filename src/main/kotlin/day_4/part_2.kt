@@ -7,9 +7,10 @@ fun main() {
 
     // prep data
     val lines = Util.readFileLineByLine("day_4/part_2/puzzle.txt")
-    val wordSearchMatrix: List<List<Char>> = mutableListOf()
-    for (line in lines) {
-        wordSearchMatrix.addLast(line.toCharArray().toList())
+    val wordSearchMatrix: List<List<Char>> = buildList {
+        for (line in lines) {
+            addLast(line.toCharArray().toList())
+        }
     }
 
     val searchWord = "MAS"

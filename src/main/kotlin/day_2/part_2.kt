@@ -20,7 +20,7 @@ fun isReportSafeWhenDampened(report: List<Int>): Boolean {
     }
     val isStrictlyDescending = report[0] > report[1]
 
-    val errorIndices: List<Int> = mutableListOf()
+    val errorIndices = mutableListOf<Int>()
     for (i in 0 until report.size - 1) {
         val current = report[i]
         val next = report[i + 1]
@@ -37,7 +37,7 @@ fun isReportSafeWhenDampened(report: List<Int>): Boolean {
     }
 
     if (errorIndices.isNotEmpty()) {
-        val uniqueErrorIndices = errorIndices.distinct()
+        val uniqueErrorIndices = errorIndices.distinct().toMutableList()
         if (1 in uniqueErrorIndices) {
             // if second item causes issues, it might be the first item's fault
             uniqueErrorIndices.addFirst(0)
